@@ -1,6 +1,6 @@
 # Doctor-Bot
 
-This was an academic project.
+This was an academic project, it was made for COMP 3190, Introduction to Artificial Intelligence.
 
 Written in prolog. This bot has a list of people in its knowledge-base and a list of
 their symptoms. From the command line you can call the functions diagnose() and test()
