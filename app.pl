@@ -1,7 +1,7 @@
 /*--- Description ---*/
 /*
 
-This program diagnoses patients based on their symptoms. I have a large
+This program diagnoses fake patients based on their symptoms. I have a
 set of patients and their symptoms in this file. What happens is that
 the program attaches certainty factors to specific symptoms and
 manitpulates the certainty factors to arrive at an overall certainty
