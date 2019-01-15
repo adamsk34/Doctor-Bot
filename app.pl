@@ -1,5 +1,4 @@
-/*--- Description ---*/
-/*
+/* --- Description ---
 
 This program diagnoses fake patients based on their symptoms. I have a
 set of patients and their symptoms in this file. What happens is that
@@ -14,9 +13,7 @@ disease.
 
 */
 
-
-/*--- Inadequacies of my program ---*/
-/*
+/* --- Further work ---
 
 I have all of the patient's information in this file. I would like to
 take that out of the file and make my system learn a person's symptoms
@@ -43,7 +40,7 @@ them unless they have 3 or more.
 The certainty factor is never negative because I don't see how having
 one symptom would decrease the likelyhood of having a disease. If that
 is something that exists in the real world, I would change the section
-called "Rules for determining overall certainty factor" to account for
+called 'Rules for determining overall certainty factor' to account for
 that since manipulating certainty factors doesn't work the same when
 they are negative.
 
@@ -57,8 +54,8 @@ rule.
 
 /* AUTHOR'S NOTE:
  *
- *  In the section called "Rules for determining overall certainty
- *  factor" I expanded the formula O1 = A+B - A*B to include more than
+ *  In the section called 'Rules for determining overall certainty
+ *  factor' I expanded the formula O1 = A+B - A*B to include more than
  *  two certainty factors by treating (A+B - A*B) as it's own certainty
  *  factor and adding another to it such as O2 = O1+C - O1*C or more
  *  specifically O2 = (A+B - A*B)+C - (A+B - A*B)*C. I countinued this
@@ -347,272 +344,62 @@ hasT2Diabetes(X,N) :-
 
 /*--- Rules for determining a patient's overall condition ---*/
 
-test(X,N) :- hasCold(X,N), N > 0 -> nl, write("Cold certainty: ").
-test(X,N) :- hasAnemia(X,N), N > 0 -> nl, write("Anemia certainty: ").
-test(X,N) :- hasHepatitisB(X,N), N > 0 -> nl, write("Hepatitis B certainty: ").
-test(X,N) :- hasPeridontalDisease(X,N), N > 0 -> nl, write("Peridontal Disease certainty: ").
-test(X,N) :- hasLungCancer(X,N), N > 0 -> nl, write("Lung Cancer certainty: ").
-test(X,N) :- hasDiarrhea(X,N), N > 0 -> nl, write("Diarrhea certainty: ").
-test(X,N) :- hasStrepThroat(X,N), N > 0 -> nl, write("Strep Throat certainty: ").
-test(X,N) :- hasSTD(X,N), N > 0 -> nl, write("STD certainty: ").
-test(X,N) :- hasHeartDisease(X,N), N > 0 -> nl, write("Heart Disease certainty: ").
-test(X,N) :- hasT2Diabetes(X,N), N > 0 -> nl, write("Type 2 Diabetes certainty: ").
+test(X,N) :- hasCold(X,N), N > 0 -> nl, write('Cold certainty: ').
+test(X,N) :- hasAnemia(X,N), N > 0 -> nl, write('Anemia certainty: ').
+test(X,N) :- hasHepatitisB(X,N), N > 0 -> nl, write('Hepatitis B certainty: ').
+test(X,N) :- hasPeridontalDisease(X,N), N > 0 -> nl, write('Peridontal Disease certainty: ').
+test(X,N) :- hasLungCancer(X,N), N > 0 -> nl, write('Lung Cancer certainty: ').
+test(X,N) :- hasDiarrhea(X,N), N > 0 -> nl, write('Diarrhea certainty: ').
+test(X,N) :- hasStrepThroat(X,N), N > 0 -> nl, write('Strep Throat certainty: ').
+test(X,N) :- hasSTD(X,N), N > 0 -> nl, write('STD certainty: ').
+test(X,N) :- hasHeartDisease(X,N), N > 0 -> nl, write('Heart Disease certainty: ').
+test(X,N) :- hasT2Diabetes(X,N), N > 0 -> nl, write('Type 2 Diabetes certainty: ').
 
-diagnose(X) :- hasCold(X,N), N > 0.7 -> write(X), write(" has as a cold.") ;
+diagnose(X) :- hasCold(X,N), N > 0.7 -> write(X), write(' has as a cold.') ;
                hasCold(X,N), N >= 0.5 -> write(X),
-	       write(" may have a cold, further tests required.").
-diagnose(X) :- hasAnemia(X,N), N > 0.7 -> write(X), write(" has as anemia.") ;
+	       write(' may have a cold, further tests required.').
+diagnose(X) :- hasAnemia(X,N), N > 0.7 -> write(X), write(' has as anemia.') ;
                hasAnemia(X,N), N >= 0.5 -> write(X),
-	       write(" may have anemia, further tests required.").
-diagnose(X) :- hasHepatitisB(X,N), N > 0.7 -> write(X), write(" has as hepatitis B.") ;
+	       write(' may have anemia, further tests required.').
+diagnose(X) :- hasHepatitisB(X,N), N > 0.7 -> write(X), write(' has as hepatitis B.') ;
                hasHepatitisB(X,N), N >= 0.5 -> write(X),
-	       write(" may have hepatitis B, further tests required.").
+	       write(' may have hepatitis B, further tests required.').
 diagnose(X) :- hasPeridontalDisease(X,N), N > 0.7 -> write(X),
-	       write(" has as peridontal disease.") ;
+	       write(' has as peridontal disease.') ;
 	       hasPeridontalDisease(X,N), N >= 0.5 -> write(X),
-	       write(" may have peridontal disease, further tests required.").
-diagnose(X) :- hasLungCancer(X,N), N > 0.7 -> write(X), write(" has as lung cancer.") ;
+	       write(' may have peridontal disease, further tests required.').
+diagnose(X) :- hasLungCancer(X,N), N > 0.7 -> write(X), write(' has as lung cancer.') ;
                hasLungCancer(X,N), N >= 0.5 -> write(X),
-	       write(" may have lung cancer, further tests required.").
-diagnose(X) :- hasDiarrhea(X,N), N > 0.7 -> write(X), write(" has as diarrhea.") ;
+	       write(' may have lung cancer, further tests required.').
+diagnose(X) :- hasDiarrhea(X,N), N > 0.7 -> write(X), write(' has as diarrhea.') ;
                hasDiarrhea(X,N), N >= 0.5 -> write(X),
-	       write(" may have diarrhea, further tests required.").
-diagnose(X) :- hasStrepThroat(X,N), N > 0.7 -> write(X), write(" has as strep throat.") ;
+	       write(' may have diarrhea, further tests required.').
+diagnose(X) :- hasStrepThroat(X,N), N > 0.7 -> write(X), write(' has as strep throat.') ;
                hasStrepThroat(X,N), N >= 0.5 -> write(X),
-	       write(" may have strep throat, further tests required.").
-diagnose(X) :- hasSTD(X,N), N > 0.7 -> write(X), write(" has as an STD.") ;
+	       write(' may have strep throat, further tests required.').
+diagnose(X) :- hasSTD(X,N), N > 0.7 -> write(X), write(' has as an STD.') ;
                hasSTD(X,N), N >= 0.5 -> write(X),
-	       write(" may have an STD, further tests required.").
-diagnose(X) :- hasHeartDisease(X,N), N > 0.7 -> write(X), write(" has as heart disease.") ;
+	       write(' may have an STD, further tests required.').
+diagnose(X) :- hasHeartDisease(X,N), N > 0.7 -> write(X), write(' has as heart disease.') ;
                hasHeartDisease(X,N), N >= 0.5 -> write(X),
-	       write(" may have heart disease, further tests required.").
-diagnose(X) :- hasT2Diabetes(X,N), N > 0.7 -> write(X), write(" has as type 2 diabetes.") ;
+	       write(' may have heart disease, further tests required.').
+diagnose(X) :- hasT2Diabetes(X,N), N > 0.7 -> write(X), write(' has as type 2 diabetes.') ;
                hasT2Diabetes(X,N), N >= 0.5 -> write(X),
-	       write(" may have type 2 diabetes, further tests required.").
+write(' may have type 2 diabetes, further tests required.').
 
 
 /*
 
 TOP 10 MOST COMMON HEALTH DISEASES (according to livestrong.com)
-+-----------------------------+
-|         Common Cold         |
-|                             |
-|	    Anemia            |
-|                             |
-|         Hepatitis B         |
-|                             |
-|    Peridontal Disease	      |
-|                             |
-|         Lung Cancer         |
-|                             |
-|	   Diarrhea	      |
-|                             |
-|         Strep Throat        |
-|                             |
-|Sexually Transmitted Diseases|
-|                             |
-|	 Heart Disease        |
-|                             |
-|       Type 2 Diabetes       |
-+-----------------------------+
+ 1. Common Cold
+ 2. Anemia
+ 3. Hepatitis B
+ 4. Peridontal Disease
+ 5. Lung Cancer
+ 6. Diarrhea
+ 7. Strep Throat
+ 8. Sexually Transmitted Diseases
+ 9. Heart Disease
+10. Type 2 Diabetes
 
 */
-
-
-/*
-
-1 ?- test(sue,CF).
-
-Peridontal Disease certainty:
-CF = 0.9136000000000002 ;
-false.
-
-2 ?- diagnose(sue).
-sue has as peridontal disease.
-true ;
-false.
-
-3 ?- test(jim,CF).
-
-Cold certainty:
-CF = 0.3 ;
-
-Anemia certainty:
-CF = 0.44 ;
-
-Hepatitis B certainty:
-CF = 0.2 ;
-
-Lung Cancer certainty:
-CF = 0.83536 ;
-
-STD certainty:
-CF = 0.2 ;
-
-Heart Disease certainty:
-CF = 0.4 ;
-
-Type 2 Diabetes certainty:
-CF = 0.2.
-
-4 ?- diagnose(jim).
-jim has as lung cancer.
-true ;
-false.
-
-5 ?- diagnose(paul).
-paul has as lung cancer.
-true ;
-paul has as heart disease.
-true ;
-false.
-
-6 ?- test(paul,CF).
-
-Cold certainty:
-CF = 0.3 ;
-
-Anemia certainty:
-CF = 0.3 ;
-
-Hepatitis B certainty:
-CF = 0.2 ;
-
-Lung Cancer certainty:
-CF = 0.706 ;
-
-Diarrhea certainty:
-CF = 0.2 ;
-
-Heart Disease certainty:
-CF = 0.8823999999999999 ;
-false.
-
-7 ?- diagnose(cameron).
-cameron has as type 2 diabetes.
-true.
-
-8 ?- test(cameron,CF).
-
-Anemia certainty:
-CF = 0.2 ;
-
-Hepatitis B certainty:
-CF = 0.2 ;
-
-Lung Cancer certainty:
-CF = 0.2 ;
-
-Type 2 Diabetes certainty:
-CF = 0.90784.
-
-9 ?- test(jason,CF).
-
-Hepatitis B certainty:
-CF = 0.2 ;
-
-Lung Cancer certainty:
-CF = 0.4 ;
-
-Diarrhea certainty:
-CF = 0.2 ;
-
-Heart Disease certainty:
-CF = 0.664 ;
-false.
-
-10 ?- diagnose(jason).
-jason may have heart disease, further tests required.
-true ;
-false.
-
-11 ?- test(jen,CF).
-
-Anemia certainty:
-CF = 0.2 ;
-
-Hepatitis B certainty:
-CF = 0.9216000000000001 ;
-
-Lung Cancer certainty:
-CF = 0.2 ;
-
-Diarrhea certainty:
-CF = 0.2 ;
-
-Heart Disease certainty:
-CF = 0.2 ;
-
-Type 2 Diabetes certainty:
-CF = 0.2.
-
-12 ?- diagnose(jen).
-jen has as hepatitis B.
-true ;
-false.
-
-13 ?- test(alex,CF).
-
-STD certainty:
-CF = 0.9616000000000001 ;
-false.
-
-14 ?- diagnose(alex).
-alex has as an STD.
-true ;
-false.
-
-15 ?- diagnose(theresa).
-theresa has as diarrhea.
-true ;
-false.
-
-16 ?- test(theresa,CF).
-
-Hepatitis B certainty:
-CF = 0.28 ;
-
-Diarrhea certainty:
-CF = 0.9279999999999999 ;
-
-Strep Throat certainty:
-CF = 0.1 ;
-
-Heart Disease certainty:
-CF = 0.2 ;
-false.
-
-17 ?- diagnose(jack).
-jack has as strep throat.
-true ;
-false.
-
-18 ?- test(jack,CF).
-
-Cold certainty:
-CF = 0.25 ;
-
-Strep Throat certainty:
-CF = 0.9054999999999999 ;
-
-STD certainty:
-CF = 0.3 ;
-false.
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
