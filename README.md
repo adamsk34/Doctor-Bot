@@ -13,4 +13,4 @@ This program diagnoses fake patients based on their symptoms. A set of fake pati
 
 ## Transcript
 
-I have included a transcript that can be found in the [Transcript.txt](./Transcript.txt) file and also exists as a comment at the end of the code in [app.pl](./app.pl)
+I have included a transcript that can be found in the [Transcript.txt](./Transcript.txt) file.

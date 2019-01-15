@@ -54,18 +54,6 @@ rule.
 
 /* AUTHOR'S NOTE:
  *
- *  In the section called 'Rules for determining overall certainty
- *  factor' I expanded the formula O1 = A+B - A*B to include more than
- *  two certainty factors by treating (A+B - A*B) as it's own certainty
- *  factor and adding another to it such as O2 = O1+C - O1*C or more
- *  specifically O2 = (A+B - A*B)+C - (A+B - A*B)*C. I countinued this
- *  out to include 5 certainty factors but it quickly became very hard
- *  to read, that is why I'm adding this explanation.
- *
-*/
-
-/* AUTHOR'S NOTE:
- *
  *  From the command line the only types of queries that should be
  *  called are test(person,CF) and diagnose(person)
  *
@@ -253,6 +241,17 @@ hasIncreasedUrination(X,N) :- increasedUrination(X) -> N is 0.6; N is 0.0.
 hasBlurryVision(X,N) :- blurryVision(X) -> N is 0.2; N is 0.0.
 
 /*--- Rules for determining overall certainty factor ---*/
+
+/* AUTHOR'S NOTE:
+ *
+ *  In this section, I expanded the formula O1 = A+B - A*B to include
+ *  more than two certainty factors by treating (A+B - A*B) as it's own
+ *  certainty factor and adding another to it such as O2 = O1+C - O1*C
+ *  or more specifically O2 = (A+B - A*B)+C - (A+B - A*B)*C. I countinued
+ *  this out to include 5 certainty factors but it quickly became very
+ *  hard to read, that is why I'm adding this explanation.
+ *
+*/
 
 hasCold(X,N) :-
 	hasSnot(X,C1),
