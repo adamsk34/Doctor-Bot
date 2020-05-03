@@ -9,7 +9,7 @@ This project should not be used to diagnose people. Any and all results from thi
 
 This bot has a list of fake people in its knowledge base and a list of their symptoms. From the Prolog console you can call the functions `diagnose()` and `test()` like this: `diagnose(kevin)` and `test(jason, CF)`.
 
-This program diagnoses fake patients based on their symptoms. A set of fake patients and their symptoms are in the [app.pl](./app.pl) file. The program arrives at an overall certainty factor for these patients having diseases by attaching certainty factors to specific symptoms and using the existence of those symptoms to calculate the certainty factor for diseases. From the Prolog console you can run the `test(person,CF)` rule and it will return all diseases with a certainty factor > 0. If you run `diagnose(person)` from the Prolog console it will return the diseases that they have as well as any case where the program is not sure if they do or do not have the disease.
+This program diagnoses fake patients based on their symptoms. A set of fake patients and their symptoms are in the [app.pl](./app.pl) file. The program arrives at an overall certainty factor (CF) for these patients having diseases by attaching certainty factors to specific symptoms and using the existence of those symptoms to calculate the certainty factor for diseases. From the Prolog console you can run the `test(person,CF)` rule and it will return all diseases with a certainty factor > 0. If you run `diagnose(person)` from the Prolog console it will return the diseases that they have as well as any case where the program is not sure if they do or do not have the disease.
 
 ## Transcript
 
